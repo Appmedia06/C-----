@@ -6,6 +6,7 @@
 #include "game.h"
 #include "functionbase.c"
 
+
 int main()
 {
     printf("///////////////°é°é¤e¤e:¤H¤u´¼¼z\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\n");
