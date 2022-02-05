@@ -114,7 +114,7 @@ int main()
         }
         if((totaloption != 'a' || totaloption != 'b') && *set == 0)
         {
-            printf("輸入錯誤!! 請重新輸入\n");
+            printf("輸入錯誤!! 請重新輸入!!\n");
             continue;
         }
     }
