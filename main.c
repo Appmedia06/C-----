@@ -9,7 +9,7 @@
 
 int main()
 {
-    printf("///////////////åœˆåœˆå‰å‰:äººå·¥æ™ºæ…§\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\n");
+    printf("///////////////°é°é¤e¤e:¤H¤u´¼¼z\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\n");
     printrule();
 
     while(1)
@@ -18,11 +18,11 @@ int main()
         char totaloption;
 
 
-        int* key_ptr; //åˆ¤æ–·æ˜¯å¦æ‰“å®Œäº”æˆ°ä¸‰å‹
-        int* note_ptr; //åˆ¤æ–·æ˜¯å¦é‡å°menu
-        int* playerscore_ptr; //ç©å®¶æ¯”æ•¸
-        int* computerscore_ptr; //é›»è…¦æ¯”æ•¸
-        int* set; //æ»¿è¶³æ¢ä»¶
+        int* key_ptr; //§PÂ_¬O§_¥´§¹¤­¾Ô¤T³Ó
+        int* note_ptr; //§PÂ_¬O§_­«¦Lmenu
+        int* playerscore_ptr; //ª±®a¤ñ¼Æ
+        int* computerscore_ptr; //¹q¸£¤ñ¼Æ
+        int* set; //º¡¨¬±ø¥ó
         
 
         key_ptr = (int *) malloc(sizeof(int)); 
@@ -66,25 +66,25 @@ int main()
                         case '1':
                             ++count;
                             if(count <= 4)
-                                printf("ç¬¬%då›åˆ\n", count);
+                                printf("²Ä%d¦^¦X\n", count);
                             if(count > 4)
-                                printf("æœ€å¾Œä¸€å›åˆ!\n");
+                                printf("³Ì«á¤@¦^¦X!\n");
                             play(playerscore_ptr, computerscore_ptr, key_ptr , note_ptr);
                             free(option);
                             if(*playerscore_ptr == 3)
                             {   
-                                printf("éŠæˆ²çµæŸï¼Œæ¯”æ•¸ç‚º%d : %d\n", *playerscore_ptr, *computerscore_ptr);
-                                printf("æ­å–œç²å‹!!!\n");
+                                printf("¹CÀ¸µ²§ô¡A¤ñ¼Æ¬°%d : %d\n", *playerscore_ptr, *computerscore_ptr);
+                                printf("®¥³ßÀò³Ó!!!\n");
                                 break;
                             }
                             if(*computerscore_ptr == 3)
                             {   
-                                printf("éŠæˆ²çµæŸï¼Œæ¯”æ•¸ç‚º%d : %d\n", *playerscore_ptr, *computerscore_ptr);
-                                printf("é›»è…¦ç²å‹!!!\n");
+                                printf("¹CÀ¸µ²§ô¡A¤ñ¼Æ¬°%d : %d\n", *playerscore_ptr, *computerscore_ptr);
+                                printf("¹q¸£Àò³Ó!!!\n");
                                 break;
                             }
                             if(*playerscore_ptr < 3 || *computerscore_ptr < 3)
-                                printf("ç›®å‰æ¯”æ•¸:%d:%d\n",*playerscore_ptr, *computerscore_ptr);    
+                                printf("¥Ø«e¤ñ¼Æ:%d:%d\n",*playerscore_ptr, *computerscore_ptr);    
                         case '2':
                             *key_ptr = -1;
                             break;
@@ -102,7 +102,7 @@ int main()
                 }
                 else
                 {
-                    printf("è¼¸å…¥éŒ¯èª¤!! è«‹é‡æ–°è¼¸å…¥\n");
+                    printf("¿é¤J¿ù»~!! ½Ğ­«·s¿é¤J\n");
                     *note_ptr = 1;
                     continue;
                 }
@@ -114,7 +114,7 @@ int main()
         }
         if((totaloption != 'a' || totaloption != 'b') && *set == 0)
         {
-            printf("è¼¸å…¥éŒ¯èª¤!! è«‹é‡æ–°è¼¸å…¥!!\n");
+            printf("¿é¤J¿ù»~!! ½Ğ­«·s¿é¤J!!\n");
             continue;
         }
     }
