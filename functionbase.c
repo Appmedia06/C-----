@@ -9,24 +9,24 @@
 
 void play(int *playerscore, int *computerscore, int *key, int *note)
 {
-    int x,y;
+    int x, y;
     char board[R_MAX][C_MAX];
     
     clear(board, R_MAX, C_MAX);  
     printboard(board, R_MAX, C_MAX);
     while(1)
     {
-        printf("½Ð¿é¤J±z­nªº®y¼Ð¦ì¸m>");
+        printf("ï¿½Ð¿ï¿½Jï¿½zï¿½nï¿½ï¿½ï¿½yï¿½Ð¦ï¿½m>");
         scanf("%d%d",&x,&y);
         if(x > R_MAX || y > C_MAX)
         {
-            printf("®y¼Ð¿é¤J¿ù»~! ½Ð¿é¤J½d³òx[1,%d], y[1,%d]\n", R_MAX, C_MAX);
+            printf("ï¿½yï¿½Ð¿ï¿½Jï¿½ï¿½ï¿½~! ï¿½Ð¿ï¿½Jï¿½dï¿½ï¿½x[1,%d], y[1,%d]\n", R_MAX, C_MAX);
             fflush(stdin);
             continue;
         }
         if(board[x-1][y-1] != ' ')
         {
-            printf("®y¼Ð¿é¤J¿ù»~! ½Ð¿ï¾Ü¨S¤U¹Lªº¦ì¤l!\n");
+            printf("ï¿½yï¿½Ð¿ï¿½Jï¿½ï¿½ï¿½~! ï¿½Ð¿ï¿½Ü¨Sï¿½Uï¿½Lï¿½ï¿½ï¿½ï¿½l!\n");
             fflush(stdin);
             continue;
         }
@@ -34,14 +34,14 @@ void play(int *playerscore, int *computerscore, int *key, int *note)
         printboard(board, R_MAX, C_MAX);
         if(Win(board, R_MAX, C_MAX) == 'O')
         {
-            printf("®¥³ßÄ¹±o¤@¦^¦X!!!\n");
+            printf("ï¿½ï¿½ï¿½ï¿½Ä¹ï¿½oï¿½@ï¿½^ï¿½X!!!\n");
             *playerscore += 1;
             *note = 1;
             return;
         }
         if(Fulled(board, R_MAX, C_MAX))
         {
-            printf("¥­¤â!!!\n");
+            printf("ï¿½ï¿½ï¿½ï¿½!!!\n");
             *note = 1;
             return;
         }
@@ -49,14 +49,14 @@ void play(int *playerscore, int *computerscore, int *key, int *note)
         printboard(board, R_MAX, C_MAX);
         if(Win(board, R_MAX, C_MAX) == 'X')
         {
-            printf("±z¿é¤F¤@¦^¦X!!!\n");
+            printf("ï¿½zï¿½ï¿½Fï¿½@ï¿½^ï¿½X!!!\n");
             *computerscore += 1;
             *note = 1;
             return;
         }
         if(Fulled(board, R_MAX, C_MAX))
         {
-            printf("¥­¤â!!!\n");
+            printf("ï¿½ï¿½ï¿½ï¿½!!!\n");
             return;
         }
     }
@@ -65,7 +65,7 @@ void computer_play(char board[R_MAX][C_MAX], int R, int C)
 {
     int x, y;
     search(board, R, C, &x, &y, 'X', 'O');
-    printf("¹q¸£¤U:%d,%d\n",x+1,y+1);
+    printf("ï¿½qï¿½ï¿½ï¿½U:%d,%d\n",x+1,y+1);
     putintoboard(board, 'X', x, y);
 }
 
@@ -108,13 +108,13 @@ char Win(char board[R_MAX][C_MAX], int R, int C)
 {
     for(int i=0; i<R; i++)
     {
-        //¾î½u//
+        //ï¿½ï¿½u//
         if(board[i][0]==board[i][1] && board[i][1]==board[i][2])
             return board[i][0];
-        //ª½½u//
+        //ï¿½ï¿½ï¿½u//
         if(board[0][i]==board[1][i] && board[1][i]==board[2][i])
             return board[0][i];
-        //±×½u//
+        //ï¿½×½u//
         if(board[0][0]==board[1][1] && board[1][1]==board[2][2])
             return board[1][1];
         if(board[0][2]==board[1][1] && board[1][1]==board[2][0])
@@ -132,9 +132,9 @@ int Fulled(char board[R_MAX][C_MAX], int R, int C)
 
 void search(char board[R_MAX][C_MAX], int R, int C, int *X, int *Y, char ch, char ch2)
 {
-    //¹q¸£´M§äÀò³Ó¤è¦¡Àò³Ó//
+    //ï¿½qï¿½ï¿½ï¿½Mï¿½ï¿½ï¿½ï¿½Ó¤è¦¡ï¿½ï¿½ï¿½//
 
-    //¨Ï"¦æ"Àò³Ó//
+    //ï¿½ï¿½"ï¿½ï¿½"ï¿½ï¿½ï¿½//
     for(int i=0; i<R; i++) 
     {   
         int count = 0;
@@ -148,13 +148,13 @@ void search(char board[R_MAX][C_MAX], int R, int C, int *X, int *Y, char ch, cha
         }
         if(count == 2 && board[i][key] == ' ' && key != -1)
         {
-            puts("¹Á¸Õª½½uÀò³Ó");
+            puts("ï¿½ï¿½ï¿½Õªï¿½ï¿½uï¿½ï¿½ï¿½");
             *X = i;
             *Y = key;
             return;
         }
     }
-    //·Q¨Ï"¦C"Àò³Ó//
+    //ï¿½Qï¿½ï¿½"ï¿½C"ï¿½ï¿½ï¿½//
     for(int i=0; i<R; i++)
     {
         int count = 0;
@@ -168,13 +168,13 @@ void search(char board[R_MAX][C_MAX], int R, int C, int *X, int *Y, char ch, cha
         }
         if(count == 2 && board[key][i] == ' ' && key != -1)
         {
-            puts("¹Á¸Õ¾î½uÀò³Ó");
+            puts("ï¿½ï¿½ï¿½Õ¾ï¿½uï¿½ï¿½ï¿½");
             *X = key;
             *Y = i;
             return;
         }
     }
-    //¹Á¸Õ¹ï¨¤Àò³Ó//
+    //ï¿½ï¿½ï¿½Õ¹ï¨¤ï¿½ï¿½ï¿½//
     int key = -1;
     int count = 0;
     for(int i=0; i<R; i++)
@@ -186,7 +186,7 @@ void search(char board[R_MAX][C_MAX], int R, int C, int *X, int *Y, char ch, cha
     }
     if(count >=2 && key != -1)
     {
-        puts("¹Á¸Õ¹ï¨¤Àò³Ó");
+        puts("ï¿½ï¿½ï¿½Õ¹ï¨¤ï¿½ï¿½ï¿½");
         *X = key;
         *Y = key;
         return;
@@ -202,15 +202,15 @@ void search(char board[R_MAX][C_MAX], int R, int C, int *X, int *Y, char ch, cha
     }
     if(count >=2 && key != -1)
     {
-        puts("¹Á¸Õ¹ï¨¤Àò³Ó");
+        puts("ï¿½ï¿½ï¿½Õ¹ï¨¤ï¿½ï¿½ï¿½");
         *X = key;
         *Y = R - key - 1;
         return;
     }
 
-    //¹q¸£ªý¤îª±®aÀò³Ó//
+    //ï¿½qï¿½ï¿½ï¿½ï¿½ï¿½îª±ï¿½aï¿½ï¿½ï¿½//
 
-    //ªý¤î¦æÀò³Ó//
+    //ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½//
     for(int i = 0; i < R; i++)
     {
         int count = 0;
@@ -224,14 +224,14 @@ void search(char board[R_MAX][C_MAX], int R, int C, int *X, int *Y, char ch, cha
         }
         if(count == 2 && key != -1)
         {
-            puts("ªý¤î¦æÀò³Ó");
+            puts("ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½");
             *X = i;
             *Y = key;
             return;
         }
     }
 
-    //ªý¤î¦CÀò³Ó//
+    //ï¿½ï¿½ï¿½ï¿½Cï¿½ï¿½ï¿½//
     for(int i = 0; i < R; i++)
     {
         int count = 0;
@@ -245,14 +245,14 @@ void search(char board[R_MAX][C_MAX], int R, int C, int *X, int *Y, char ch, cha
         }
         if(count == 2 && loc != -1)
         {
-            puts("ªý¤î¦CÀò³Ó");
+            puts("ï¿½ï¿½ï¿½ï¿½Cï¿½ï¿½ï¿½");
             *X = loc;
             *Y = i;
             return;
         }
     }
      
-    //ªý¤î¹ï¨¤Àò³Ó//
+    //ï¿½ï¿½ï¿½ï¿½ï¨¤ï¿½ï¿½ï¿½//
     key = -1;
     count = 0;
     for(int i = 0; i < R; i++)
@@ -264,7 +264,7 @@ void search(char board[R_MAX][C_MAX], int R, int C, int *X, int *Y, char ch, cha
     }
     if(count == 2 && key != -1)
     {
-        puts("ªý¤î¹ï¨¤½uÀò³Ó");
+        puts("ï¿½ï¿½ï¿½ï¿½ï¨¤ï¿½uï¿½ï¿½ï¿½");
         *X = key;
         *Y = key;
         return; 
@@ -280,14 +280,14 @@ void search(char board[R_MAX][C_MAX], int R, int C, int *X, int *Y, char ch, cha
     }
     if(count == 2 && key != -1)
     {
-        puts("¹Á¸Õªý¤î¹ï¨¤½uÀò³Ó");
+        puts("ï¿½ï¿½ï¿½Õªï¿½ï¿½ï¿½ï¨¤ï¿½uï¿½ï¿½ï¿½");
         *X = key;
         *Y = R - key - 1;
         return;
     }
 
-    //ÀH¾÷¤U//
-    printf("¹q¸£ÀH¾÷¤U\n");
+    //ï¿½Hï¿½ï¿½ï¿½U//
+    printf("ï¿½qï¿½ï¿½ï¿½Hï¿½ï¿½ï¿½U\n");
     srand((unsigned int)time(NULL));
     while(1)
     {
@@ -304,22 +304,22 @@ void search(char board[R_MAX][C_MAX], int R, int C, int *X, int *Y, char ch, cha
 
 void printrule()
 {
-    printf("³W«h¦p¤U:\n");
-    printf("1.¥Ñ±z¥ý§ð¡A§Ú¤è¬°O¡A¼Ä¤è¬°X\n\n");
-    printf("2.½Ð¿é¤J®y¼Ð(«eªÌ¬°¾î¶b¡A«áªÌ¬°Áa¶b)\n");
-    printf("¨Ò¦p:§Ú­n¤¤¶¡¨º®æ!½Ð¿é¤J2 2\n\n");
-    printf("3.¥ý³s¦¨¤@±ø½uªÌÀò³Ó\n\n");
-    printf("4.±Ä¤­¾Ô¤T³Ó¨î¡A¥ýÄ¹¨ì¤T¤ÀªÌÀò³Ó\n\n");
-    printf("5.¨C¤@¦^¦Xµ²§ô®É¡A½Ð«öenterÁä¡AÁÂÁÂ\n\n");
-    printf("¯¬±z¹Cª±´r§Ö!\n\n");
+    printf("ï¿½Wï¿½hï¿½pï¿½U:\n");
+    printf("1.ï¿½Ñ±zï¿½ï¿½ï¿½ï¿½Aï¿½Ú¤è¬°Oï¿½Aï¿½Ä¤è¬°X\n\n");
+    printf("2.ï¿½Ð¿ï¿½Jï¿½yï¿½ï¿½(ï¿½eï¿½Ì¬ï¿½ï¿½ï¿½bï¿½Aï¿½ï¿½Ì¬ï¿½ï¿½aï¿½b)\n");
+    printf("ï¿½Ò¦p:ï¿½Ú­nï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½!ï¿½Ð¿ï¿½J2 2\n\n");
+    printf("3.ï¿½ï¿½ï¿½sï¿½ï¿½ï¿½@ï¿½ï¿½ï¿½uï¿½ï¿½ï¿½ï¿½ï¿½\n\n");
+    printf("4.ï¿½Ä¤ï¿½ï¿½Ô¤Tï¿½Ó¨ï¿½Aï¿½ï¿½Ä¹ï¿½ï¿½Tï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½\n\n");
+    printf("5.ï¿½Cï¿½@ï¿½^ï¿½Xï¿½ï¿½ï¿½ï¿½ï¿½É¡Aï¿½Ð«ï¿½enterï¿½ï¿½Aï¿½ï¿½ï¿½ï¿½\n\n");
+    printf("ï¿½ï¿½ï¿½zï¿½Cï¿½ï¿½ï¿½rï¿½ï¿½!\n\n");
 }
 void totalmenu()
 {
-    puts("a.¶}©l³o³õ¹CÀ¸  b.°h¥X");
+    puts("a.ï¿½}ï¿½lï¿½oï¿½ï¿½ï¿½Cï¿½ï¿½  b.ï¿½hï¿½X");
 }
 void menu()
 {
-    puts("1.¶}©l³o¦^¦X  2.°h¥X");
+    puts("1.ï¿½}ï¿½lï¿½oï¿½^ï¿½X  2.ï¿½hï¿½X");
 }
 
 void free_data(int *key, int *note, int *playerscore, int *computerscore)
