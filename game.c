@@ -102,7 +102,7 @@ int main()
                 }
                 else
                 {
-                    printf("輸入錯誤! 請重新輸入\n");
+                    printf("輸入錯誤!! 請重新輸入\n");
                     *note_ptr = 1;
                     continue;
                 }
