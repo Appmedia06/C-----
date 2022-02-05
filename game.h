@@ -6,6 +6,7 @@
 #include "string.h"
 #include "time.h"
 
+
 void play(int *playerscore, int *computerscore, int *key, int *note);
 void computer_play(char board[R_MAX][C_MAX], int R, int C);
 
